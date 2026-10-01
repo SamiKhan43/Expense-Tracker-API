@@ -14,6 +14,6 @@ SessionLocal = sessionmaker(bind=engine)
 We are using SQLAlchemy instead of writing SQL queries directly because
 SQLAlchemy allows us to interact with the database using Python code.
 It provides an easier and more organized way to create tables, insert,
-update, delete, and retrieve data without having to write raw SQL for
+update, delete and retrieve data without having to write raw SQL for
 every database operation.
 """
