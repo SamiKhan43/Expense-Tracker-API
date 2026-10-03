@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+venv/
+
+# The database file (contains local test data, not needed in the repo)
+expenses.db
+
+# Secrets - never commit this, it holds your real SECRET_KEY
+.env
+
+# Editor/OS junk
+.vscode/
+.DS_Store
