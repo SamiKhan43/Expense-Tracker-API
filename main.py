@@ -33,6 +33,43 @@ def welcome_massage():
     return {"message": "welcome to the Expense Tracker API"}
 
 @app.post("/signup")
+def signup(user: UserCreate, db=Depends(get_db)):
+    hashed = password_hash.hash(user.password)
+
+    new_user = User(
+        username=user.username,
+        hashed_password=hashed
+        )
+
+    db.add(new_user)
+    db.commit()
+    
+    return {"message": f"User '{user.username}' created successfully"}
 
 @app.post("/login")
+def login(user:UserLogin,db=Depends(get_db)):
+        
+    # Find the user by username
+    db_user = db.query(User).filter(
+        User.username == user.username
+        ).first()
+
+    if not db_user:
+        raise HTTPException( 
+            status_code=401,
+            detail="invalid username or password"
+    )
+
+    if not password_hash.verify(
+        user.password,
+        db_user.hashed_password
+    ):
+        raise HTTPException(
+        status_code=401,
+        detail="invalid username or password"    
+    )
+
+    token = create_access_token(db_user.username)
+
+    return {"access_token":token,"token_type":"bearer"}
 
