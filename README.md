@@ -2,7 +2,7 @@
 
 A REST API built with **FastAPI** for tracking personal expenses, with user accounts and JWT-based authentication. Each user can only see and manage their own expenses.
 
-Built as a learning project to practice backend fundamentals: databases, password security, JWT authentication, and full CRUD operations.
+Built as a learning project to practice backend fundamentals: databases, password security, JWT authentication, and full CRUD operations
 
 Project brief: [roadmap.sh/projects/expense-tracker-api](https://roadmap.sh/projects/expense-tracker-api)
 
